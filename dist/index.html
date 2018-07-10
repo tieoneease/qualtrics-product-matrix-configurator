@@ -9,6 +9,7 @@
   <style>
 	.grid.container {
 		margin-top: 5em;
+		margin-bottom: 5em;
 	}
 	.input-file {
 		width: 0.1px;
@@ -18,29 +19,46 @@
 		position: absolute;
 		z-index: -1;
 	}
-
   </style>
 </head>
 <body>
     <div class="ui middle aligned center aligned grid container">
 		<div class="ui large form">
-			<div class="ui stacked segment">
-				<div class="field">
-					<input id="products-file-input" type="file" class="input-file">
-					<label id="products-file-upload-button" for="products-file-input" class="ui labeled icon button">
-						<i class="upload icon"></i> 
-						Upload Products CSV
-					</label>
-				</div>
+            <div id="segments-container" class="ui raised segments">
+                <div class="ui padded segment">
+                    <div class="field">
+                        <input id="products-file-input" type="file" class="input-file">
+                        <label id="products-file-upload-button" for="products-file-input" class="ui labeled icon button">
+                            <i class="upload icon"></i> 
+                            <p>Upload Products CSV</p>
+                        </label>
+                    </div>
 
-				<div class="field">
-					<input id="tasks-file-input" type="file" class="input-file">
-					<label id="tasks-file-upload-button" for="tasks-file-input" class="ui labeled icon button">
-						<i class="upload icon"></i> 
-						Upload Tasks CSV
-					</label>
-				</div>
-			</div>
+                    <div class="field">
+                        <input id="tasks-file-input" type="file" class="input-file">
+                        <label id="tasks-file-upload-button" for="tasks-file-input" class="ui labeled icon button">
+                            <i class="upload icon"></i> 
+                            <p>Upload Tasks CSV</p>
+                        </label>
+                    </div>
+                    <div class="field">
+                        <div class="ui toggle checkbox">
+                            <input id="no-task-toggle" type="checkbox" name="public">
+                            <label>No-Task Mode</label>
+                        </div>
+                    </div>
+
+                    <div class="ui divider"></div>
+
+                    <div class="field">
+                        <button id="generate-button" class="ui labeled icon button">
+                            <i class="terminal icon"></i> 
+                            Generate Code
+                        </button>
+                    </div>
+                </div>
+
+            </div>
 		</div>
     </div>
 	<script src="bundle.js?123"></script>
