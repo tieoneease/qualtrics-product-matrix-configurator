@@ -6,9 +6,43 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css" />
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
-  <script src="index.js?123"></script>
+  <style>
+	.grid.container {
+		margin-top: 5em;
+	}
+	.input-file {
+		width: 0.1px;
+		height: 0.1px;
+		opacity: 0;
+		overflow: hidden;
+		position: absolute;
+		z-index: -1;
+	}
+
+  </style>
 </head>
 <body>
-  <div class="ui inverted menu">JSpitter</div>
+    <div class="ui middle aligned center aligned grid container">
+		<div class="ui large form">
+			<div class="ui stacked segment">
+				<div class="field">
+					<input id="products-file-input" type="file" class="input-file">
+					<label id="products-file-upload-button" for="products-file-input" class="ui labeled icon button">
+						<i class="upload icon"></i> 
+						Upload Products CSV
+					</label>
+				</div>
+
+				<div class="field">
+					<input id="tasks-file-input" type="file" class="input-file">
+					<label id="tasks-file-upload-button" for="tasks-file-input" class="ui labeled icon button">
+						<i class="upload icon"></i> 
+						Upload Tasks CSV
+					</label>
+				</div>
+			</div>
+		</div>
+    </div>
+	<script src="bundle.js?123"></script>
 </body>
 </html>
