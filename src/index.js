@@ -80,11 +80,12 @@ function processIntoJsonArray(_data) {
 }
 
 function transformToProductComponent(productAttributes) {
+    let identifier = Object.keys(productAttributes)[0];
     let obj = {
-        name: productAttributes['Name'],
+        name: productAttributes[identifier],
         attributes: productAttributes
     };
-    delete obj.attributes['Name'];
+    delete obj.attributes[identifier];
     return obj;
 }
 
