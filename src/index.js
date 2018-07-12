@@ -13,6 +13,7 @@ const tasksFileUploadIcon = tasksFileUploadButton.getElementsByTagName('I')[0];
 const tasksFileInputText = tasksFileUploadButton.getElementsByTagName('P')[0];
 
 const noTaskToggle = document.getElementById('no-task-toggle');
+const rankingModeToggle = document.getElementById('ranking-mode-toggle');
 
 const generateButton = document.getElementById('generate-button');
 
@@ -28,7 +29,8 @@ codeSegment.appendChild(codePre);
 let config = {
     products: {},
     tasks: {},
-    noTaskMode: false
+    noTaskMode: false,
+    rankingMode: false
 }
 
 productsFileInput.onchange = function() {
@@ -58,6 +60,10 @@ tasksFileInput.onchange = function() {
 
 noTaskToggle.onchange = function(e) {
     config.noTaskMode = e.target.checked;
+}
+
+rankingModeToggle.onchange = function(e) {
+    config.rankingMode = e.target.checked;
 }
 
 generateButton.onclick = function() {
@@ -100,7 +106,14 @@ function getHtmlCodeString() {
 }
 
 function getCodeString() {
-    let message = '// Copy and paste this into the question JavaScript';
-    let code = 'initQuestionMatrix(' + prettifyJSON(config) + ');';
-    return message + '\n' + code;
+    let message = '// Copy and paste this into the question JavaScript\n';
+    let hideChoicesCode = 'this.hideChoices();\n'
+    let configJson = prettifyJSON(config).slice(0, -2);
+    configJson += ',\n'
+    configJson += '  thisInstance: this';
+    configJson += ',\n'
+    configJson += '  engineInstance: Qualtrics.SurveyEngine';
+    configJson += '\n}';
+    let code = 'initQuestionMatrix(' + configJson + ');';
+    return message + hideChoicesCode + code;
 }
