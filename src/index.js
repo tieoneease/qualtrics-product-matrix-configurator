@@ -14,6 +14,7 @@ const tasksFileInputText = tasksFileUploadButton.getElementsByTagName('P')[0];
 
 const noTaskToggle = document.getElementById('no-task-toggle');
 const rankingModeToggle = document.getElementById('ranking-mode-toggle');
+const tasksBelowMatrixToggle = document.getElementById('tasks-below-matrix-toggle');
 
 const generateButton = document.getElementById('generate-button');
 
@@ -30,7 +31,8 @@ let config = {
     products: {},
     tasks: {},
     noTaskMode: false,
-    rankingMode: false
+    rankingMode: false,
+    tasksBelowMatrix: false
 }
 
 productsFileInput.onchange = function() {
@@ -64,6 +66,10 @@ noTaskToggle.onchange = function(e) {
 
 rankingModeToggle.onchange = function(e) {
     config.rankingMode = e.target.checked;
+}
+
+tasksBelowMatrixToggle.onchange = function(e) {
+    config.tasksBelowMatrix = e.target.checked;
 }
 
 generateButton.onclick = function() {
